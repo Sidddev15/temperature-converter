@@ -1,16 +1,23 @@
 <div class="temperature-container">
       <div class="temperature-box">
-            <h6>Temperature Converter</h6>
-            <div class="temperature-conversion">
-                  <input type="text" name="temperature" placeholder="Enter Temperature in Celcius">
-                  <select>
-                        <option value="°C">Celcius</option>
-                        <option value="°F">Fahrenheit</option>
-                        <option value="°K">Kelvin</option>
-                  </select>
-            </div>
-            <div class="converted-temperature">
-                  24°C
-            </div>
+        <h6>Temperature Converter</h6>
+        <div class="temperature-conversion">
+          <input
+            type="number"
+            name="temperature"
+            placeholder="Enter Temperature in Celsius"
+            [(ngModel)]="inputTemperature"
+            (input)="convertTemperature()"
+          />
+          <select [(ngModel)]="selectedUnit" (change)="convertTemperature()">
+            <option value="°C">Celsius</option>
+            <option value="°F">Fahrenheit</option>
+            <option value="°K">Kelvin</option>
+          </select>
+        </div>
+        <div class="converted-temperature">
+          {{ convertedTemperature }}
+        </div>
       </div>
-</div>
+    </div>
+    
